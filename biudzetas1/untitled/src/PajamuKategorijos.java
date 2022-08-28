@@ -1,0 +1,14 @@
+public enum PajamuKategorijos {
+    ATLYGINIMAS,
+    NEKILNOJAMAS_TURTAS,
+    INDELIS,
+    DOVANA,
+    PASKOLA,
+    DIVIDENDAI,
+    LOTERIJA,
+    SUSIGRAZINTI_MOKESCIAI;
+
+}
+
+
+
