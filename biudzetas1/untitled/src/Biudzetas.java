@@ -1,9 +1,4 @@
-import jdk.swing.interop.SwingInterOpUtils;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.Scanner;
 
 public class Biudzetas {
@@ -72,7 +67,7 @@ public class Biudzetas {
                 pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.SUSIGRAZINTI_MOKESCIAI;
             }
             default -> {
-                System.out.println("įvesta kategotija neegzistuoja");
+                System.out.println("įvesta kategorija neegzistuoja");
             }
         }
 
