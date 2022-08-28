@@ -13,7 +13,7 @@ public class Biudzetas {
 
     IslaiduIrasas[] islaidos = new IslaiduIrasas[100];
 
-     private int totalRevenueCount = 0;
+     private int totalRevenueListCount = 0;
 
 
     public Biudzetas() {
@@ -38,79 +38,76 @@ public class Biudzetas {
     }
 
     public void pridetiPajamuIrasa(){
-//        PajamuIrasas pajamuIrasas = new PajamuIrasas();
-//        Scanner ri = new Scanner(System.in);
-        pajamos[totalRevenueCount] = new PajamuIrasas(58.9f,LocalDateTime.now(), PajamuKategorijos.LOTERIJA, true, "nera info");
-        totalRevenueCount++;
-//        pajamos[1] = new PajamuIrasas(58.9f,LocalDateTime.now(), PajamuKategorijos.LOTERIJA, true, "nera info");
-//        System.out.println("įveskite Pajamų įrašo suma");
-//        pajamuIrasas.suma =ri.nextFloat();
-//        pajamuIrasas.data = LocalDateTime.now();
-//        System.out.println(pajamuIrasas.toString());
-//        System.out.println("Iveskite pajamu kategotija");
-//        Programa.showRevenueIndexes();
-//        int pajamuKategorija = ri.nextInt();
-//        switch (pajamuKategorija){
-//            case(1) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.ATLYGINIMAS;
-//            }
-//            case(2) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.NEKILNOJAMAS_TURTAS;
-//            }
-//            case(3) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.INDELIS;
-//            }
-//            case(4) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.DOVANA;
-//            }
-//            case(5) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.PASKOLA;
-//            }
-//            case(6) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.DIVIDENDAI;
-//            }
-//            case(7) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.LOTERIJA;
-//            }
-//            case(8) ->{
-//                pajamuIrasas.kategorija  = PajamuKategorijos.SUSIGRAZINTI_MOKESCIAI;
-//            }
-//            default -> {
-//                System.out.println("įvesta kategotija neegzistuoja");
-//            }
-//        }
-//        System.out.println(pajamuIrasas.toString());
-//        Programa.showarIbankaIndexes();
+        Scanner ri = new Scanner(System.in);
+        pajamos[totalRevenueListCount] = new PajamuIrasas();
+        System.out.println("įveskite Pajamų įrašo sumą");
+        pajamos[totalRevenueListCount].suma = ri.nextFloat();
+        pajamos[totalRevenueListCount].data = pajamos[totalRevenueListCount].setData();
+        System.out.println("Iveskite pajamu kategotija");
+        Programa.showRevenueIndexes();
+                int pajamuKategorija = ri.nextInt();
+        switch (pajamuKategorija){
+            case(1) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.ATLYGINIMAS;
+            }
+            case(2) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.NEKILNOJAMAS_TURTAS;
+            }
+            case(3) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.INDELIS;
+            }
+            case(4) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.DOVANA;
+            }
+            case(5) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.PASKOLA;
+            }
+            case(6) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.DIVIDENDAI;
+            }
+            case(7) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.LOTERIJA;
+            }
+            case(8) ->{
+                pajamos[totalRevenueListCount].kategorija  = PajamuKategorijos.SUSIGRAZINTI_MOKESCIAI;
+            }
+            default -> {
+                System.out.println("įvesta kategotija neegzistuoja");
+            }
+        }
+
+        Programa.showarIbankaIndexes();
 //
-//        int ibanka  = ri.nextInt();
+        int ibanka  = ri.nextInt();
+
+        switch (ibanka){
+            case(1) ->{
+                pajamos[totalRevenueListCount].pozymisArIBanka = true;
+            }
+            case (2) ->{
+                pajamos[totalRevenueListCount].pozymisArIBanka = false;
+            }
+        }
 //
-//        switch (ibanka){
-//            case(1) ->{
-//                pajamuIrasas.pozymisArIBanka = true;
-//            }
-//            case (2) ->{
-//                pajamuIrasas.pozymisArIBanka = false;
-//            }
-//        }
-//
-//        System.out.println(pajamuIrasas.toString());
-////        ri.close();
-//        Programa.showAdditionalCommentSelection();
-//        int komentarai = ri.nextInt();
-//        switch (komentarai){
-//            case (1) ->{
-//                System.out.println("Įveskite komentarą: ");
-//                String comment  = ri.next();
-//                pajamuIrasas.papildomaInfo  = comment;
-//                System.out.println(pajamuIrasas.toString());
-//            }
-//            case (2) ->{
-//                System.out.println();
-//                System.out.println(pajamuIrasas.toString());
-//            }
-//        }
-////        ri.close();
-//        System.out.println(pajamos);
+        Programa.showAdditionalCommentSelection();
+        int komentarai = ri.nextInt();
+        switch (komentarai){
+            case (1) ->{
+                ri.nextLine();
+                System.out.println("Įveskite komentarą: ");
+                pajamos[totalRevenueListCount].papildomaInfo  = ri.nextLine();
+                System.out.println(pajamos[totalRevenueListCount]);
+            }
+            case (2) ->{
+                System.out.println();
+                System.out.println(pajamos[totalRevenueListCount]);
+            }
+        }
+
+
+        totalRevenueListCount++;
+
+        System.out.println( "Jūsų įrašas: " + pajamos[totalRevenueListCount]);
     };
 
     public void pridetiIslaiduIrasa(){
@@ -120,6 +117,7 @@ public class Biudzetas {
 
     public void gautiPajamuIrasa(){
         for (int i = 0; i < pajamos.length ; i++) {
+            if(pajamos[i] != null)
             System.out.println(pajamos[i]);
         }
     };

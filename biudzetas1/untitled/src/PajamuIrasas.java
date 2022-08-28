@@ -1,8 +1,10 @@
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class PajamuIrasas {
     float suma;
-   LocalDateTime data;
+   String data;
     PajamuKategorijos kategorija;
     Boolean pozymisArIBanka;
     String papildomaInfo;
@@ -11,7 +13,7 @@ public class PajamuIrasas {
     public PajamuIrasas() {
     }
 
-    public PajamuIrasas(float suma, LocalDateTime data, PajamuKategorijos kategorija, Boolean pozymisArIBanka, String papildomaInfo) {
+    public PajamuIrasas(float suma, String data, PajamuKategorijos kategorija, Boolean pozymisArIBanka, String papildomaInfo) {
         this.suma = suma;
         this.data = data;
         this.kategorija = kategorija;
@@ -27,12 +29,14 @@ public class PajamuIrasas {
         this.suma = suma;
     }
 
-    public LocalDateTime getData() {
+    public String getData() {
         return data;
     }
 
-    public LocalDateTime setData() {
-        return LocalDateTime.now();
+    public String setData() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        return formatter.format(date);
     }
 
     public PajamuKategorijos getKategorija() {
