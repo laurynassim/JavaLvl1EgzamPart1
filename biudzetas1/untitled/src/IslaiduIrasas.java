@@ -1,8 +1,9 @@
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class IslaiduIrasas {
     float suma;
-    Date dataSuLaiku;
+    String dataSuLaiku;
     IslaiduKategorijos kategorija;
     AtsiskaitymoBudas atsiskaitymoBudas;
     String papildomaInfo;
@@ -18,12 +19,14 @@ public class IslaiduIrasas {
         this.suma = suma;
     }
 
-    public Date getDataSuLaiku() {
+    public String getDataSuLaiku() {
         return dataSuLaiku;
     }
 
-    public void setDataSuLaiku(Date dataSuLaiku) {
-        this.dataSuLaiku = dataSuLaiku;
+    public String setDataSuLaiku() {
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        return formatter.format(date);
     }
 
     public IslaiduKategorijos getKategorija() {

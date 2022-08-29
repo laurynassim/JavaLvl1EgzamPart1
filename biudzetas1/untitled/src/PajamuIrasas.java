@@ -3,7 +3,7 @@ import java.util.Date;
 
 public class PajamuIrasas {
     float suma;
-   String data;
+    String data;
     PajamuKategorijos kategorija;
     Boolean pozymisArIBanka;
     String papildomaInfo;
@@ -62,9 +62,11 @@ public class PajamuIrasas {
         this.papildomaInfo = papildomaInfo;
     }
 
-    public void showRevenueCommands(){
+    public void showRevenueCommands() {
 
-    };
+    }
+
+    ;
 
     @Override
     public String toString() {
