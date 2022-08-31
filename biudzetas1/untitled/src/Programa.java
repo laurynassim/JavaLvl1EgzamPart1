@@ -33,7 +33,7 @@ public class Programa {
                     pi.addComments(papildomaInfo);
                     System.out.println(pi);
                     b1.pajamos[b1.totalRevenueListCount++] = pi;
-                    System.out.println("testas");
+                    System.out.println("testas1");
                 }
                 case "i" -> {
                     IslaiduIrasas ii = new IslaiduIrasas();
