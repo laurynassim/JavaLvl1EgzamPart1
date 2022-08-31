@@ -66,7 +66,29 @@ public class PajamuIrasas {
 
     }
 
-    ;
+    public void checkIfToBank(int x){
+        switch (x){
+            case(1) ->{
+                pozymisArIBanka  = true;
+            }
+            case (2) ->{
+               pozymisArIBanka = false;
+            }
+        }
+
+    }
+
+    public void addCommentsPrintLine(int x){
+        if (x==1){
+            System.out.println("Įveskite Papildomą informaciją");
+        }
+        else System.out.println("komentarų nėra, spauskite enter norėdami tęsti");
+
+    }
+
+    public void addComments(String komentaras){
+        papildomaInfo = komentaras;
+    }
 
     @Override
     public String toString() {

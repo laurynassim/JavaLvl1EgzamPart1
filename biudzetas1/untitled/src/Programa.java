@@ -13,18 +13,55 @@ public class Programa {
 
             switch (input) {
                 case "p" -> {
-                    b1.pridetiPajamuIrasa();
-//
+                    PajamuIrasas pi = new PajamuIrasas();
+                    System.out.println("įveskite Pajamų įrašo sumą");
+                    pi.suma = sc.nextFloat();
+                    pi.data = pi.setData();
+                    System.out.println("Iveskite pajamu kategoriją");
+                    showRevenueIndexes();
+                    int pajamuKategorija = sc.nextInt();
+                    PajamuKategorijos pk = PajamuKategorijos.valueOf(pajamuKategorija);
+                    pi.kategorija = pk;
+                    showarIbankaIndexes();
+                    int ariBanka = sc.nextInt();
+                    pi.checkIfToBank(ariBanka);
+                    showAdditionalCommentSelection();
+                    int komentarai = sc.nextInt();
+                    sc.nextLine();
+                    pi.addCommentsPrintLine(komentarai);
+                    String papildomaInfo = sc.nextLine();
+                    pi.addComments(papildomaInfo);
+                    System.out.println(pi);
+                    b1.pajamos[b1.totalRevenueListCount++] = pi;
                 }
                 case "i" -> {
-                    b1.pridetiIslaiduIrasa();
-
+                    IslaiduIrasas ii = new IslaiduIrasas();
+                    System.out.println("Įveskite Išlaidų įrašo sumą: ");
+                    ii.suma = sc.nextFloat();
+                    ii.dataSuLaiku = ii.setDataSuLaiku();
+                    showExpensesIndexes();
+                    int islaiduKategorija = sc.nextInt();
+                    IslaiduKategorijos ik = IslaiduKategorijos.valueOf(islaiduKategorija);
+                    ii.kategorija = ik;
+                    showAtsiskaitymoBudas();
+                    System.out.println("įveskite atsiskaitymo būdą: ");
+                    int atsiskaitymoBudas = sc.nextInt();
+                    AtsiskaitymoBudas ab = AtsiskaitymoBudas.valueOf(atsiskaitymoBudas);
+                    ii.atsiskaitymoBudas = ab;
+                    showAdditionalCommentSelection();
+                    int komentarai = sc.nextInt();
+                    sc.nextLine();
+                    ii.addCommentsPrintLine(komentarai);
+                    String papildomaInfo = sc.nextLine();
+                    ii.addComments(papildomaInfo);
+                    System.out.println(ii);
+                    b1.islaidos[b1.totalExpensesListCount++] = ii;
                 }
                 case "s" -> {
-                    b1.gautiPajamuIrasa();
+                    b1.spausdintiBendraPajamuIrasa();
                 }
                 case "d" -> {
-                    b1.gautiIslaiduIrasa();
+                    b1.spausdintiBendraIslaiduIrasa();
                 }
                 case "e" -> {
                     isRunning = false;
@@ -39,13 +76,13 @@ public class Programa {
     }
 
     static void showCommands() {
-        System.out.println("_____________Pasirinkite____________");
-        System.out.printf("%5s %20s", "[p]", "- pridėti pajamų įrašą");
-        System.out.printf("\n%5s %20s", "[i]", "- pridėti išlaidų įrašą");
-        System.out.printf("\n%5s %20s", "[s]", "gauti pajamų įrašą");
-        System.out.printf("\n%5s %20s", "[d]", "- gauti išlaidų įrašą");
-        System.out.printf("\n%5s %20s", "[e]", "- pabaiga");
-        System.out.println("\n_____________________________________");
+        System.out.println("_____________Pasirinkite__________________________");
+        System.out.printf("%5s %40s", "[p]", "- pridėti pajamų įrašą");
+        System.out.printf("\n%5s %40s", "[i]", "- pridėti išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[s]", "- spausdinti bendrą pajamų sarašą");
+        System.out.printf("\n%5s %40s", "[d]", "- spausdinti bendrą išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
+        System.out.println("\n________________________________________________");
     }
 
     static void showRevenueIndexes() {

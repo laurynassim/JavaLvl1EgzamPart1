@@ -53,6 +53,16 @@ public class IslaiduIrasas {
         this.papildomaInfo = papildomaInfo;
     }
 
+    public void addCommentsPrintLine(int x){
+        if (x==1){
+            System.out.println("Įveskite papildomą informaciją");
+        }else System.out.println("komentarų nėra, spauskite enter norėdami tęsti");
+    }
+
+    public void addComments (String komentaras){
+        papildomaInfo = komentaras;
+    }
+
     @Override
     public String toString() {
         return "IslaiduIrasas{" +
