@@ -15,13 +15,13 @@ public class Programa {
                 case "p" -> {
                     PajamuIrasas pi = new PajamuIrasas();
                     System.out.println("įveskite Pajamų įrašo sumą");
-                    pi.suma = sc.nextFloat();
-                    pi.data = pi.setData();
+                    pi.setSuma(sc.nextFloat());
+                    pi.setData(pi.setData());
                     System.out.println("Iveskite pajamu kategoriją");
                     showRevenueIndexes();
                     int pajamuKategorija = sc.nextInt();
                     PajamuKategorijos pk = PajamuKategorijos.valueOf(pajamuKategorija);
-                    pi.kategorija = pk;
+                    pi.setKategorija(pk);
                     showarIbankaIndexes();
                     int ariBanka = sc.nextInt();
                     pi.checkIfToBank(ariBanka);
@@ -37,17 +37,17 @@ public class Programa {
                 case "i" -> {
                     IslaiduIrasas ii = new IslaiduIrasas();
                     System.out.println("Įveskite Išlaidų įrašo sumą: ");
-                    ii.suma = sc.nextFloat();
-                    ii.dataSuLaiku = ii.setDataSuLaiku();
+                    ii.setSuma(sc.nextFloat());
+                    ii.setDataSuLaiku(ii.setDataSuLaiku());
                     showExpensesIndexes();
                     int islaiduKategorija = sc.nextInt();
                     IslaiduKategorijos ik = IslaiduKategorijos.valueOf(islaiduKategorija);
-                    ii.kategorija = ik;
+                    ii.setKategorija(ik);
                     showAtsiskaitymoBudas();
                     System.out.println("įveskite atsiskaitymo būdą: ");
                     int atsiskaitymoBudas = sc.nextInt();
                     AtsiskaitymoBudas ab = AtsiskaitymoBudas.valueOf(atsiskaitymoBudas);
-                    ii.atsiskaitymoBudas = ab;
+                    ii.setAtsiskaitymoBudas(ab);
                     showAdditionalCommentSelection();
                     int komentarai = sc.nextInt();
                     sc.nextLine();

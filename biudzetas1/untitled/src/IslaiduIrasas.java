@@ -1,15 +1,49 @@
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+
 public class IslaiduIrasas {
-    float suma;
-    String dataSuLaiku;
-    IslaiduKategorijos kategorija;
-    AtsiskaitymoBudas atsiskaitymoBudas;
-    String papildomaInfo;
+    private float suma;
+    private String dataSuLaiku;
+    private IslaiduKategorijos kategorija;
+
+    private AtsiskaitymoBudas atsiskaitymoBudas;
+    private String papildomaInfo;
+
+    private static int counter = 0;
+
+    private int id;
 
     public IslaiduIrasas() {
+        this.id = counter++;
     }
+    public int getId() {
+        return id;
+    }
+
+    public void setSuma(float suma) {
+        this.suma = suma;
+    }
+
+    public void setDataSuLaiku(String dataSuLaiku) {
+        this.dataSuLaiku = dataSuLaiku;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        IslaiduIrasas.counter = counter;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
 
     public float getSuma() {
         return suma;
@@ -53,13 +87,14 @@ public class IslaiduIrasas {
         this.papildomaInfo = papildomaInfo;
     }
 
-    public void addCommentsPrintLine(int x){
-        if (x==1){
+    public void addCommentsPrintLine(int x) {
+        if (x == 1) {
             System.out.println("Įveskite papildomą informaciją");
-        }else System.out.println("komentarų nėra, spauskite enter norėdami tęsti");
+        } else System.out.println("komentarų nėra, spauskite enter norėdami tęsti");
     }
 
-    public void addComments (String komentaras){
+
+    public void addComments(String komentaras) {
         papildomaInfo = komentaras;
     }
 
@@ -67,10 +102,11 @@ public class IslaiduIrasas {
     public String toString() {
         return "IslaiduIrasas{" +
                 "suma=" + suma +
-                ", dataSuLaiku=" + dataSuLaiku +
+                ", dataSuLaiku='" + dataSuLaiku + '\'' +
                 ", kategorija=" + kategorija +
                 ", atsiskaitymoBudas=" + atsiskaitymoBudas +
                 ", papildomaInfo='" + papildomaInfo + '\'' +
+                ", id=" + id +
                 '}';
     }
 }

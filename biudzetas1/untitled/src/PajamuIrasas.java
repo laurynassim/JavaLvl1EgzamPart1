@@ -2,23 +2,20 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class PajamuIrasas {
-    float suma;
-    String data;
-    PajamuKategorijos kategorija;
-    Boolean pozymisArIBanka;
-    String papildomaInfo;
+     private float suma;
+    private String data;
+   private PajamuKategorijos kategorija;
+   private  Boolean pozymisArIBanka;
+    private String papildomaInfo;
 
+    private static int counter = 0;
+
+    private int id;
 
     public PajamuIrasas() {
+        this.id = counter++;
     }
 
-    public PajamuIrasas(float suma, String data, PajamuKategorijos kategorija, Boolean pozymisArIBanka, String papildomaInfo) {
-        this.suma = suma;
-        this.data = data;
-        this.kategorija = kategorija;
-        this.pozymisArIBanka = pozymisArIBanka;
-        this.papildomaInfo = papildomaInfo;
-    }
 
     public float getSuma() {
         return suma;
@@ -36,6 +33,26 @@ public class PajamuIrasas {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
         return formatter.format(date);
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public static int getCounter() {
+        return counter;
+    }
+
+    public static void setCounter(int counter) {
+        PajamuIrasas.counter = counter;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public PajamuKategorijos getKategorija() {
@@ -94,10 +111,11 @@ public class PajamuIrasas {
     public String toString() {
         return "PajamuIrasas{" +
                 "suma=" + suma +
-                ", data=" + data +
+                ", data='" + data + '\'' +
                 ", kategorija=" + kategorija +
                 ", pozymisArIBanka=" + pozymisArIBanka +
                 ", papildomaInfo='" + papildomaInfo + '\'' +
+                ", id=" + id +
                 '}';
     }
 }
