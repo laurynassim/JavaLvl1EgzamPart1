@@ -113,7 +113,7 @@ public class Programa {
     }
 
     static void showExpensesIndexes() {
-        System.out.println("_____________įveskite pajamų kategoriją____________");
+        System.out.println("_____________įveskite išlaidų kategoriją____________");
         System.out.printf("%5s %20s", "[1]", IslaiduKategorijos.BUSTO_MOKESCIAI);
         System.out.printf("\n%5s %20s", "[2]", IslaiduKategorijos.BUSTO_PASKOLA);
         System.out.printf("\n%5s %20s", "[3]", IslaiduKategorijos.MAISTAS);
