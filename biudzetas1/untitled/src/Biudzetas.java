@@ -4,6 +4,11 @@ import java.util.Scanner;
 
 public class Biudzetas {
 
+
+    private int bendraPajamuSuma;
+    private int bendraIslaiduSuma;
+
+
     ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
 
 
@@ -41,5 +46,19 @@ public class Biudzetas {
         System.out.println(islaidos);
     }
 
+    public float suskaiciuotiVisasPajamas(){
+        for (int i = 0; i <pajamos.size() ; i++) {
+            bendraPajamuSuma += pajamos.get(i).suma;
+        }return bendraPajamuSuma;
+    }
 
+    public float suskaiciuotiVisasIslaidas(){
+        for (int i = 0; i <islaidos.size() ; i++) {
+            bendraIslaiduSuma += islaidos.get(i).suma;
+        }return bendraIslaiduSuma;
+    }
+
+    public float balansas(){
+        return suskaiciuotiVisasPajamas() - suskaiciuotiVisasIslaidas();
+    }
 }

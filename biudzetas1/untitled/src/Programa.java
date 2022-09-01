@@ -63,6 +63,9 @@ public class Programa {
                 case "d" -> {
                     b1.spausdintiBendraIslaiduIrasa();
                 }
+                case "b" ->{
+                    System.out.println("Jūsų balansas yra: " + b1.balansas());
+                }
                 case "e" -> {
                     isRunning = false;
                 }
@@ -81,6 +84,7 @@ public class Programa {
         System.out.printf("\n%5s %40s", "[i]", "- pridėti išlaidų įrašą");
         System.out.printf("\n%5s %40s", "[s]", "- spausdinti bendrą pajamų sarašą");
         System.out.printf("\n%5s %40s", "[d]", "- spausdinti bendrą išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[b]", "- spausdinti jūsų balansą");
         System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
         System.out.println("\n________________________________________________");
     }
