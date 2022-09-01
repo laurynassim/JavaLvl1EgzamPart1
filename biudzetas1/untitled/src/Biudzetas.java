@@ -39,28 +39,28 @@ public class Biudzetas {
 
     public void spausdintiPajamuIrasus() {
         System.out.println("\nPajamų sąrašas: ");
-        for (int i = 0; i < pajamos.size(); i++) {
+        for (PajamuIrasas irasas: pajamos) {
             System.out.printf("%-10s %-20s %-30s %-30s %-20s %-20s",
-                    "\nID: " + pajamos.get(i).getId(),
-                    "suma: " + pajamos.get(i).getSuma(),
-                    "data: " + pajamos.get(i).getData(),
-                    "kategorija: " + pajamos.get(i).getKategorija(),
-                    "Ar į banką : " + pajamos.get(i).getPozymisArIBanka(),
-                    "komentarai: " + pajamos.get(i).getPapildomaInfo());
+                    "\nID: " + irasas.getId(),
+                    "suma: " + irasas.getSuma(),
+                    "data: " + irasas.getData(),
+                    "kategorija: " + irasas.getKategorija(),
+                    "Ar į banką : " + irasas.getPozymisArIBanka(),
+                    "komentarai: " + irasas.getPapildomaInfo());
         }
 
     }
 
     public void spausdintiIslaiduIrasus() {
         System.out.println("\nIŠlaidų sąrašas: ");
-        for (int i = 0; i < islaidos.size(); i++) {
+        for (IslaiduIrasas irasas: islaidos) {
             System.out.printf("%-10s %-20s %-30s %-30s %-40s %-20s",
-                    "\nID: " + islaidos.get(i).getId(),
-                    "suma: " + islaidos.get(i).getSuma(),
-                    "data: " + islaidos.get(i).getDataSuLaiku(),
-                    "kategorija: " + islaidos.get(i).getKategorija(),
-                    "metodas: " + islaidos.get(i).getAtsiskaitymoBudas(),
-                    "komentarai: " + islaidos.get(i).getPapildomaInfo());
+                    "\nID: " + irasas.getId(),
+                    "suma: " + irasas.getSuma(),
+                    "data: " + irasas.getDataSuLaiku(),
+                    "kategorija: " + irasas.getKategorija(),
+                    "metodas: " + irasas.getAtsiskaitymoBudas(),
+                    "komentarai: " + irasas.getPapildomaInfo());
         }
     }
 
@@ -80,5 +80,20 @@ public class Biudzetas {
 
     public float balansas() {
         return suskaiciuotiVisasPajamas() - suskaiciuotiVisasIslaidas();
+    }
+
+    public void pasalintiPajamuIrasa(int id){
+        for(PajamuIrasas irasas: pajamos){
+            if(irasas.getId()==id){
+                pajamos.remove(irasas);
+            }
+        }
+    }
+    public void pasalintiIslaiduIrasa(int id){
+        for (IslaiduIrasas irasas: islaidos){
+            if(irasas.getId()==id){
+                islaidos.remove(irasas);
+            }
+        }
     }
 }

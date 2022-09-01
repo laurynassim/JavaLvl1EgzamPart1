@@ -28,4 +28,6 @@ public enum AtsiskaitymoBudas {
     public int getValue(){
         return value;
     }
+
+
 }

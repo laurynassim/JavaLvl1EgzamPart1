@@ -12,25 +12,25 @@ public enum PajamuKategorijos {
     SUSIGRAZINTI_MOKESCIAI(8);
 
     private int value;
-    private static final Map map = new HashMap<>();
 
     private PajamuKategorijos(int value) {
         this.value = value;
     }
 
-    static {
-        for (PajamuKategorijos pajamuKategorijos : PajamuKategorijos.values()) {
-            map.put(pajamuKategorijos.value, pajamuKategorijos);
-        }
-    }
-
-    public static PajamuKategorijos valueOf(int pajamuIndeksas) {
-        return (PajamuKategorijos) map.get(pajamuIndeksas);
-    }
 
     public int getValue() {
         return value;
     }
+
+    public static PajamuKategorijos getKategorijaById(int id){
+        for(PajamuKategorijos kategorija : PajamuKategorijos.values()){
+            if(kategorija.getValue()==id){
+                return kategorija;
+            }
+        }
+        return null;
+    }
+
 }
 
 

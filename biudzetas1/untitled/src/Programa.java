@@ -20,7 +20,7 @@ public class Programa {
                     System.out.println("Iveskite pajamu kategoriją");
                     showRevenueIndexes();
                     int pajamuKategorija = sc.nextInt();
-                    PajamuKategorijos pk = PajamuKategorijos.valueOf(pajamuKategorija);
+                    PajamuKategorijos pk = PajamuKategorijos.getKategorijaById(pajamuKategorija);
                     pi.setKategorija(pk);
                     showarIbankaIndexes();
                     int ariBanka = sc.nextInt();
@@ -66,6 +66,20 @@ public class Programa {
                 case "b" ->{
                     System.out.println("Jūsų balansas yra: " + b1.balansas());
                 }
+                case  "q" ->{
+                    System.out.println("Įveskite pajamų įrašo ID:  ");
+                    int pajamuId = sc.nextInt();
+                    b1.pasalintiPajamuIrasa(pajamuId);
+                    sc.nextLine();
+                    System.out.println("Pajamu irasas, kurio ID " + pajamuId + " sėkmingai pašalintas");
+                }
+                case "w" -> {
+                    System.out.println("Įveskite islaidu iraso ID: ");
+                    int islaiduId = sc.nextInt();
+                    b1.pasalintiIslaiduIrasa(islaiduId);
+                    sc.nextLine();
+                    System.out.println("Islaidu irasas, kurio ID" + islaiduId + " Sėkmingai ištrintas");
+                }
                 case "e" -> {
                     isRunning = false;
                 }
@@ -85,6 +99,8 @@ public class Programa {
         System.out.printf("\n%5s %40s", "[s]", "- spausdinti pajamų įrašus");
         System.out.printf("\n%5s %40s", "[d]", "- spausdinti išlaidų įrašus");
         System.out.printf("\n%5s %40s", "[b]", "- spausdinti jūsų balansą");
+        System.out.printf("\n%5s %40s", "[q]", "- pašalinti pajamų įrašą");
+        System.out.printf("\n%5s %40s", "[w]", "- pašalinti išlaidų įrašą");
         System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
         System.out.println("\n________________________________________________");
     }
