@@ -58,10 +58,10 @@ public class Programa {
                     b1.islaidos.add(ii);
                 }
                 case "s" -> {
-                    b1.spausdintiBendraPajamuIrasa();
+                    b1.spausdintiPajamuIrasus();
                 }
                 case "d" -> {
-                    b1.spausdintiBendraIslaiduIrasa();
+                    b1.spausdintiIslaiduIrasus();
                 }
                 case "b" ->{
                     System.out.println("Jūsų balansas yra: " + b1.balansas());
@@ -79,11 +79,11 @@ public class Programa {
     }
 
     static void showCommands() {
-        System.out.println("_____________Pasirinkite__________________________");
-        System.out.printf("%5s %40s", "[p]", "- pridėti pajamų įrašą");
+        System.out.println("\n_____________Pasirinkite__________________________");
+        System.out.printf("\n%5s %40s", "[p]", "- pridėti pajamų įrašą");
         System.out.printf("\n%5s %40s", "[i]", "- pridėti išlaidų įrašą");
-        System.out.printf("\n%5s %40s", "[s]", "- spausdinti bendrą pajamų sarašą");
-        System.out.printf("\n%5s %40s", "[d]", "- spausdinti bendrą išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[s]", "- spausdinti pajamų įrašus");
+        System.out.printf("\n%5s %40s", "[d]", "- spausdinti išlaidų įrašus");
         System.out.printf("\n%5s %40s", "[b]", "- spausdinti jūsų balansą");
         System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
         System.out.println("\n________________________________________________");
@@ -117,7 +117,7 @@ public class Programa {
     }
 
     static void showExpensesIndexes() {
-        System.out.println("_____________įveskite pajamų kategoriją____________");
+        System.out.println("_____________įveskite Išlaidų kategoriją____________");
         System.out.printf("%5s %20s", "[1]", IslaiduKategorijos.BUSTO_MOKESCIAI);
         System.out.printf("\n%5s %20s", "[2]", IslaiduKategorijos.BUSTO_PASKOLA);
         System.out.printf("\n%5s %20s", "[3]", IslaiduKategorijos.MAISTAS);

@@ -37,28 +37,46 @@ public class Biudzetas {
     }
 
 
-    public void spausdintiBendraPajamuIrasa() {
-        System.out.println(pajamos);
+    public void spausdintiPajamuIrasus() {
+        System.out.println("\nPajamų sąrašas: ");
+        for (int i = 0; i < pajamos.size(); i++) {
+            System.out.printf("%-20s %-30s %-40s %-20s %-20s",
+                    "\nsuma: " + pajamos.get(i).suma,
+                    "data: " + pajamos.get(i).data,
+                    "kategorija: " + pajamos.get(i).kategorija,
+                    "Ar į banką : " + pajamos.get(i).pozymisArIBanka,
+                    "komentarai: " + pajamos.get(i).papildomaInfo);
+        }
+
     }
 
-
-    public void spausdintiBendraIslaiduIrasa() {
-        System.out.println(islaidos);
+    public void spausdintiIslaiduIrasus() {
+        System.out.println("\nIŠlaidų sąrašas: ");
+        for (int i = 0; i < islaidos.size(); i++) {
+            System.out.printf("%-20s %-30s %-30s %-40s %-20s",
+                    "\nsuma: " + islaidos.get(i).suma,
+                    "data: " + islaidos.get(i).dataSuLaiku,
+                    "kategorija: " + islaidos.get(i).kategorija,
+                    "metodas: " + islaidos.get(i).atsiskaitymoBudas,
+                    "komentarai: " + islaidos.get(i).papildomaInfo);
+        }
     }
 
-    public float suskaiciuotiVisasPajamas(){
-        for (int i = 0; i <pajamos.size() ; i++) {
+    public float suskaiciuotiVisasPajamas() {
+        for (int i = 0; i < pajamos.size(); i++) {
             bendraPajamuSuma += pajamos.get(i).suma;
-        }return bendraPajamuSuma;
+        }
+        return bendraPajamuSuma;
     }
 
-    public float suskaiciuotiVisasIslaidas(){
-        for (int i = 0; i <islaidos.size() ; i++) {
+    public float suskaiciuotiVisasIslaidas() {
+        for (int i = 0; i < islaidos.size(); i++) {
             bendraIslaiduSuma += islaidos.get(i).suma;
-        }return bendraIslaiduSuma;
+        }
+        return bendraIslaiduSuma;
     }
 
-    public float balansas(){
+    public float balansas() {
         return suskaiciuotiVisasPajamas() - suskaiciuotiVisasIslaidas();
     }
 }
