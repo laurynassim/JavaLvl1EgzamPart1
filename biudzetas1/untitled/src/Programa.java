@@ -32,8 +32,7 @@ public class Programa {
                     String papildomaInfo = sc.nextLine();
                     pi.addComments(papildomaInfo);
                     System.out.println(pi);
-                    b1.pajamos[b1.totalRevenueListCount++] = pi;
-                    System.out.println("testas1");
+                    b1.pajamos.add(pi);
                 }
                 case "i" -> {
                     IslaiduIrasas ii = new IslaiduIrasas();
@@ -56,7 +55,7 @@ public class Programa {
                     String papildomaInfo = sc.nextLine();
                     ii.addComments(papildomaInfo);
                     System.out.println(ii);
-                    b1.islaidos[b1.totalExpensesListCount++] = ii;
+                    b1.islaidos.add(ii);
                 }
                 case "s" -> {
                     b1.spausdintiBendraPajamuIrasa();

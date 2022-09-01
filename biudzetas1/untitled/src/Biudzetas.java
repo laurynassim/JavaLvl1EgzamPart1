@@ -1,52 +1,44 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Biudzetas {
 
-    PajamuIrasas[] pajamos = new PajamuIrasas[100];
+    ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
 
 
-    IslaiduIrasas[] islaidos = new IslaiduIrasas[100];
+    ArrayList<IslaiduIrasas> islaidos = new ArrayList<IslaiduIrasas>();
 
-    public int totalRevenueListCount = 0;
-    public int totalExpensesListCount = 0;
 
+    public ArrayList<PajamuIrasas> getPajamos() {
+        return pajamos;
+    }
+
+    public void setPajamos(ArrayList<PajamuIrasas> pajamos) {
+        this.pajamos = pajamos;
+    }
+
+    public ArrayList<IslaiduIrasas> getIslaidos() {
+        return islaidos;
+    }
+
+    public void setIslaidos(ArrayList<IslaiduIrasas> islaidos) {
+        this.islaidos = islaidos;
+    }
 
     public Biudzetas() {
         this.pajamos = pajamos;
         this.islaidos = islaidos;
     }
 
-    public PajamuIrasas[] getPajamos() {
-        return pajamos;
-    }
-
-    public void setPajamos(PajamuIrasas[] pajamos) {
-        this.pajamos = pajamos;
-    }
-
-    public IslaiduIrasas[] getIslaidos() {
-        return islaidos;
-    }
-
-    public void setIslaidos(IslaiduIrasas[] islaidos) {
-        this.islaidos = islaidos;
-    }
-
 
     public void spausdintiBendraPajamuIrasa() {
-        for (int i = 0; i < pajamos.length; i++) {
-            if (pajamos[i] != null)
-                System.out.println(pajamos[i]);
-        }
+        System.out.println(pajamos);
     }
 
 
     public void spausdintiBendraIslaiduIrasa() {
-        for (int i = 0; i < islaidos.length; i++) {
-            if (islaidos[i] != null)
-                System.out.println(islaidos[i]);
-        }
+        System.out.println(islaidos);
     }
 
 
