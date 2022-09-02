@@ -9,12 +9,9 @@ public class Biudzetas {
     private int bendraIslaiduSuma;
 
 
-    ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
 
 
-    ArrayList<IslaiduIrasas> islaidos = new ArrayList<IslaiduIrasas>();
-
-
+    ArrayList<Irasas> irasas = new ArrayList<Irasas>();
     public ArrayList<PajamuIrasas> getPajamos() {
         return pajamos;
     }
