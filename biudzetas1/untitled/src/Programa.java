@@ -13,72 +13,19 @@ public class Programa {
 
             switch (input) {
                 case "p" -> {
-                    PajamuIrasas pi = new PajamuIrasas();
-                    System.out.println("įveskite Pajamų įrašo sumą");
-                    pi.setSuma(sc.nextFloat());
-                    pi.setData(pi.setData());
-                    System.out.println("Iveskite pajamu kategoriją");
-                    showRevenueIndexes();
-                    int pajamuKategorija = sc.nextInt();
-                    PajamuKategorijos pk = PajamuKategorijos.getKategorijaById(pajamuKategorija);
-                    pi.setKategorija(pk);
-                    showarIbankaIndexes();
-                    int ariBanka = sc.nextInt();
-                    pi.checkIfToBank(ariBanka);
-                    showAdditionalCommentSelection();
-                    int komentarai = sc.nextInt();
-                    sc.nextLine();
-                    pi.addCommentsPrintLine(komentarai);
-                    String papildomaInfo = sc.nextLine();
-                    pi.addComments(papildomaInfo);
-                    System.out.println(pi);
-                    b1.pajamos.add(pi);
-                }
-                case "i" -> {
-                    IslaiduIrasas ii = new IslaiduIrasas();
-                    System.out.println("Įveskite Išlaidų įrašo sumą: ");
-                    ii.setSuma(sc.nextFloat());
-                    ii.setDataSuLaiku(ii.setDataSuLaiku());
-                    showExpensesIndexes();
-                    int islaiduKategorija = sc.nextInt();
-                    IslaiduKategorijos ik = IslaiduKategorijos.valueOf(islaiduKategorija);
-                    ii.setKategorija(ik);
-                    showAtsiskaitymoBudas();
-                    System.out.println("įveskite atsiskaitymo būdą: ");
-                    int atsiskaitymoBudas = sc.nextInt();
-                    AtsiskaitymoBudas ab = AtsiskaitymoBudas.valueOf(atsiskaitymoBudas);
-                    ii.setAtsiskaitymoBudas(ab);
-                    showAdditionalCommentSelection();
-                    int komentarai = sc.nextInt();
-                    sc.nextLine();
-                    ii.addCommentsPrintLine(komentarai);
-                    String papildomaInfo = sc.nextLine();
-                    ii.addComments(papildomaInfo);
-                    System.out.println(ii);
-                    b1.islaidos.add(ii);
+                    b1.pridetiIrasa(sc);
                 }
                 case "s" -> {
-                    b1.spausdintiPajamuIrasus();
+                    System.out.println(b1.gautiPajamuIrasus());
                 }
                 case "d" -> {
-                    b1.spausdintiIslaiduIrasus();
-                }
-                case "b" ->{
-                    System.out.println("Jūsų balansas yra: " + b1.balansas());
+                    System.out.println(b1.gautiIslaiduIrasus());
                 }
                 case  "q" ->{
-                    System.out.println("Įveskite pajamų įrašo ID:  ");
-                    int pajamuId = sc.nextInt();
-                    b1.pasalintiPajamuIrasa(pajamuId);
-                    sc.nextLine();
-                    System.out.println("Pajamu irasas, kurio ID " + pajamuId + " sėkmingai pašalintas");
+                    b1.gautiIrasus();
                 }
                 case "w" -> {
-                    System.out.println("Įveskite islaidu iraso ID: ");
-                    int islaiduId = sc.nextInt();
-                    b1.pasalintiIslaiduIrasa(islaiduId);
-                    sc.nextLine();
-                    System.out.println("Islaidu irasas, kurio ID" + islaiduId + " Sėkmingai ištrintas");
+                    System.out.println("asas");;
                 }
                 case "e" -> {
                     isRunning = false;
@@ -94,13 +41,10 @@ public class Programa {
 
     static void showCommands() {
         System.out.println("\n_____________Pasirinkite__________________________");
-        System.out.printf("\n%5s %40s", "[p]", "- pridėti pajamų įrašą");
-        System.out.printf("\n%5s %40s", "[i]", "- pridėti išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[p]", "- pridėti naują įrašą");
         System.out.printf("\n%5s %40s", "[s]", "- spausdinti pajamų įrašus");
         System.out.printf("\n%5s %40s", "[d]", "- spausdinti išlaidų įrašus");
-        System.out.printf("\n%5s %40s", "[b]", "- spausdinti jūsų balansą");
-        System.out.printf("\n%5s %40s", "[q]", "- pašalinti pajamų įrašą");
-        System.out.printf("\n%5s %40s", "[w]", "- pašalinti išlaidų įrašą");
+        System.out.printf("\n%5s %40s", "[q]", "- spausdinti visus įrašus");
         System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
         System.out.println("\n________________________________________________");
     }
@@ -163,5 +107,12 @@ public class Programa {
         System.out.printf("\n%5s %20s", "[4]", AtsiskaitymoBudas.KREDITINE_KORTELE);
         System.out.printf("\n%5s %20s", "[5]", AtsiskaitymoBudas.MOKEJIMO_ATIDEJIMAS);
         System.out.println("\n_________________________________________________");
+    }
+
+    static void printRevenueOrIncomeSelection(){
+        System.out.println("\n_____________Pasirinkite įrašo tipą: __________________________");
+        System.out.printf("\n%5s %40s", "[1]", "- pridėti pajamų įrašą");
+        System.out.printf("\n%5s %40s", "[2]", "- pridėti išlaidų įrašą");
+        System.out.println("\n_________________________________________________________________");
     }
 }

@@ -1,96 +1,96 @@
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Biudzetas {
 
+    ArrayList<Irasas> sarasas= new ArrayList<Irasas>();
 
-    private int bendraPajamuSuma;
-    private int bendraIslaiduSuma;
-
-
-
-
-    ArrayList<Irasas> irasas = new ArrayList<Irasas>();
-    public ArrayList<PajamuIrasas> getPajamos() {
-        return pajamos;
-    }
-
-    public void setPajamos(ArrayList<PajamuIrasas> pajamos) {
-        this.pajamos = pajamos;
-    }
-
-    public ArrayList<IslaiduIrasas> getIslaidos() {
-        return islaidos;
-    }
-
-    public void setIslaidos(ArrayList<IslaiduIrasas> islaidos) {
-        this.islaidos = islaidos;
-    }
-
-    public Biudzetas() {
-        this.pajamos = pajamos;
-        this.islaidos = islaidos;
-    }
-
-
-    public void spausdintiPajamuIrasus() {
-        System.out.println("\nPajamų sąrašas: ");
-        for (PajamuIrasas irasas: pajamos) {
-            System.out.printf("%-10s %-20s %-30s %-30s %-20s %-20s",
-                    "\nID: " + irasas.getId(),
-                    "suma: " + irasas.getSuma(),
-                    "data: " + irasas.getData(),
-                    "kategorija: " + irasas.getKategorija(),
-                    "Ar į banką : " + irasas.getPozymisArIBanka(),
-                    "komentarai: " + irasas.getPapildomaInfo());
-        }
-
-    }
-
-    public void spausdintiIslaiduIrasus() {
-        System.out.println("\nIŠlaidų sąrašas: ");
-        for (IslaiduIrasas irasas: islaidos) {
-            System.out.printf("%-10s %-20s %-30s %-30s %-40s %-20s",
-                    "\nID: " + irasas.getId(),
-                    "suma: " + irasas.getSuma(),
-                    "data: " + irasas.getDataSuLaiku(),
-                    "kategorija: " + irasas.getKategorija(),
-                    "metodas: " + irasas.getAtsiskaitymoBudas(),
-                    "komentarai: " + irasas.getPapildomaInfo());
-        }
-    }
-
-    public float suskaiciuotiVisasPajamas() {
-        for (int i = 0; i < pajamos.size(); i++) {
-            bendraPajamuSuma += pajamos.get(i).getSuma();
-        }
-        return bendraPajamuSuma;
-    }
-
-    public float suskaiciuotiVisasIslaidas() {
-        for (int i = 0; i < islaidos.size(); i++) {
-            bendraIslaiduSuma += islaidos.get(i).getSuma();
-        }
-        return bendraIslaiduSuma;
-    }
-
-    public float balansas() {
-        return suskaiciuotiVisasPajamas() - suskaiciuotiVisasIslaidas();
-    }
-
-    public void pasalintiPajamuIrasa(int id){
-        for(PajamuIrasas irasas: pajamos){
-            if(irasas.getId()==id){
-                pajamos.remove(irasas);
+    public void pridetiIrasa(Scanner sc){
+        Programa.printRevenueOrIncomeSelection();
+        int pasirinkimas  = sc.nextInt();
+        sc.nextLine();
+        switch (pasirinkimas){
+            case(1) ->{
+                PajamuIrasas pi = new PajamuIrasas();
+                System.out.println("įveskite Pajamų įrašo sumą");
+                pi.setSuma(sc.nextFloat());
+                pi.setData(pi.setData());
+                System.out.println("Iveskite pajamu kategoriją");
+                Programa.showRevenueIndexes();
+                int pajamuKategorija = sc.nextInt();
+                PajamuKategorijos pk = PajamuKategorijos.getKategorijaById(pajamuKategorija);
+                pi.setKategorija(pk);
+                Programa.showarIbankaIndexes();
+                int ariBanka = sc.nextInt();
+                pi.checkIfToBank(ariBanka);
+                Programa.showAdditionalCommentSelection();
+                int komentarai = sc.nextInt();
+                sc.nextLine();
+                pi.addCommentsPrintLine(komentarai);
+                String papildomaInfo = sc.nextLine();
+                pi.addComments(papildomaInfo);
+                System.out.println(pi);
+                sarasas.add(pi);
+            }
+            case(2) -> {
+                IslaiduIrasas ii = new IslaiduIrasas();
+                System.out.println("Įveskite Išlaidų įrašo sumą: ");
+                ii.setSuma(sc.nextFloat());
+                ii.setData(ii.setData());
+                Programa.showExpensesIndexes();
+                int islaiduKategorija = sc.nextInt();
+                IslaiduKategorijos ik = IslaiduKategorijos.valueOf(islaiduKategorija);
+                ii.setKategorija(ik);
+                Programa.showAtsiskaitymoBudas();
+                System.out.println("įveskite atsiskaitymo būdą: ");
+                int atsiskaitymoBudas = sc.nextInt();
+                AtsiskaitymoBudas ab = AtsiskaitymoBudas.valueOf(atsiskaitymoBudas);
+                ii.setAtsiskaitymoBudas(ab);
+                Programa.showAdditionalCommentSelection();
+                int komentarai = sc.nextInt();
+                sc.nextLine();
+                ii.addCommentsPrintLine(komentarai);
+                String papildomaInfo = sc.nextLine();
+                ii.addComments(papildomaInfo);
+                System.out.println(ii);
+                sarasas.add(ii);
+            }
+            default -> {
+                System.out.println("įvesties klaida");
             }
         }
+
+
     }
-    public void pasalintiIslaiduIrasa(int id){
-        for (IslaiduIrasas irasas: islaidos){
-            if(irasas.getId()==id){
-                islaidos.remove(irasas);
-            }
+
+    public void gautiIrasus(){
+        for (Irasas irasas: sarasas){
+            System.out.println(irasas);
         }
     }
+
+
+    public Irasas gautiPajamuIrasus(){
+        for (Irasas irasas: sarasas){
+            if(irasas.getClass().getName().equals("PajamuIrasas")){
+                return irasas;
+            }
+        }
+
+        return null;
+    }
+
+
+    public Irasas gautiIslaiduIrasus(){
+        for (Irasas irasas: sarasas){
+            if(irasas.getClass().getName().equals("IslaiduIrasas")){
+                return irasas;
+            }
+        }
+
+        return null;
+    }
+
 }

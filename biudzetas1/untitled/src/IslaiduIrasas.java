@@ -3,64 +3,13 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 
-public class IslaiduIrasas {
-    private float suma;
-    private String dataSuLaiku;
+public class IslaiduIrasas extends Irasas {
+
     private IslaiduKategorijos kategorija;
 
     private AtsiskaitymoBudas atsiskaitymoBudas;
-    private String papildomaInfo;
-
-    private static int counter = 0;
-
-    private int id;
 
     public IslaiduIrasas() {
-        this.id = counter++;
-    }
-    public int getId() {
-        return id;
-    }
-
-    public void setSuma(float suma) {
-        this.suma = suma;
-    }
-
-    public void setDataSuLaiku(String dataSuLaiku) {
-        this.dataSuLaiku = dataSuLaiku;
-    }
-
-    public static int getCounter() {
-        return counter;
-    }
-
-    public static void setCounter(int counter) {
-        IslaiduIrasas.counter = counter;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-
-
-
-    public float getSuma() {
-        return suma;
-    }
-
-    public void setSuma(int suma) {
-        this.suma = suma;
-    }
-
-    public String getDataSuLaiku() {
-        return dataSuLaiku;
-    }
-
-    public String setDataSuLaiku() {
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-        return formatter.format(date);
     }
 
     public IslaiduKategorijos getKategorija() {
@@ -79,13 +28,6 @@ public class IslaiduIrasas {
         this.atsiskaitymoBudas = atsiskaitymoBudas;
     }
 
-    public String getPapildomaInfo() {
-        return papildomaInfo;
-    }
-
-    public void setPapildomaInfo(String papildomaInfo) {
-        this.papildomaInfo = papildomaInfo;
-    }
 
     public void addCommentsPrintLine(int x) {
         if (x == 1) {
@@ -94,19 +36,17 @@ public class IslaiduIrasas {
     }
 
 
-    public void addComments(String komentaras) {
-        papildomaInfo = komentaras;
-    }
+
 
     @Override
     public String toString() {
         return "IslaiduIrasas{" +
-                "suma=" + suma +
-                ", dataSuLaiku='" + dataSuLaiku + '\'' +
-                ", kategorija=" + kategorija +
-                ", atsiskaitymoBudas=" + atsiskaitymoBudas +
-                ", papildomaInfo='" + papildomaInfo + '\'' +
-                ", id=" + id +
+                "ID: " + getId() +
+                ", suma: " + getSuma() +
+                ", data: " + getData() +
+                ", kategorija=" + getKategorija() +
+                ", atsiskaitymoBudas=" + getAtsiskaitymoBudas() +
+                ", komentarai: " + getPapildomaInfo() +
                 '}';
     }
 }

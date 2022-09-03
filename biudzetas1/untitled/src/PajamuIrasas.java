@@ -1,58 +1,17 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+public class PajamuIrasas extends Irasas {
 
-public class PajamuIrasas {
-     private float suma;
-    private String data;
    private PajamuKategorijos kategorija;
    private  Boolean pozymisArIBanka;
-    private String papildomaInfo;
 
-    private static int counter = 0;
 
-    private int id;
+//    public PajamuIrasas(float suma, String data, String papildomaInfo, int id, PajamuKategorijos kategorija, Boolean pozymisArIBanka) {
+//        super(suma, data, papildomaInfo, id);
+//        this.kategorija = kategorija;
+//        this.pozymisArIBanka = pozymisArIBanka;
+//    }
+
 
     public PajamuIrasas() {
-        this.id = counter++;
-    }
-
-
-    public float getSuma() {
-        return suma;
-    }
-
-    public void setSuma(float suma) {
-        this.suma = suma;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public String setData() {
-        Date date = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
-        return formatter.format(date);
-    }
-
-    public void setData(String data) {
-        this.data = data;
-    }
-
-    public static int getCounter() {
-        return counter;
-    }
-
-    public static void setCounter(int counter) {
-        PajamuIrasas.counter = counter;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public PajamuKategorijos getKategorija() {
@@ -69,18 +28,6 @@ public class PajamuIrasas {
 
     public void setPozymisArIBanka(Boolean pozymisArIBanka) {
         this.pozymisArIBanka = pozymisArIBanka;
-    }
-
-    public String getPapildomaInfo() {
-        return papildomaInfo;
-    }
-
-    public void setPapildomaInfo(String papildomaInfo) {
-        this.papildomaInfo = papildomaInfo;
-    }
-
-    public void showRevenueCommands() {
-
     }
 
     public void checkIfToBank(int x){
@@ -103,19 +50,18 @@ public class PajamuIrasas {
 
     }
 
-    public void addComments(String komentaras){
-        papildomaInfo = komentaras;
-    }
 
     @Override
     public String toString() {
         return "PajamuIrasas{" +
-                "suma=" + suma +
-                ", data='" + data + '\'' +
-                ", kategorija=" + kategorija +
-                ", pozymisArIBanka=" + pozymisArIBanka +
-                ", papildomaInfo='" + papildomaInfo + '\'' +
-                ", id=" + id +
+                "ID: " + getId() +
+                ", suma: " + getSuma() +
+                ", data: " + getData() +
+                ", kategorija = " + getKategorija() +
+                ", pozymisArIBanka = " + getPozymisArIBanka() +
+                ", komentarai: " + getPapildomaInfo() +
                 '}';
     }
+
+
 }
