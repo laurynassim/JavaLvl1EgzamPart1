@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Programa {
@@ -16,16 +17,33 @@ public class Programa {
                     b1.pridetiIrasa(sc);
                 }
                 case "s" -> {
-                    System.out.println(b1.gautiPajamuIrasus());
+                    b1.spausdintiPajamuIrasus();
                 }
                 case "d" -> {
-                    System.out.println(b1.gautiIslaiduIrasus());
+                    b1.spausdintiIslaiduIrasus();
                 }
                 case  "q" ->{
                     b1.gautiIrasus();
                 }
                 case "w" -> {
-                    System.out.println("asas");;
+                    System.out.println("Įveskite įrašo, kurį norite redaguoti, ID: ");
+                    int id  = sc.nextInt();
+                    Irasas irasas =  b1.pasirinktiIrasa(id);
+                    PajamuIrasas pi = b1.filtruotiPajamasPagalId(id);
+                    IslaiduIrasas ii = b1.filtruotiIslaidaspagalId(id);
+                    System.out.println("Pasirinktas įrašas " + irasas);
+                    if(b1.isRevenue(id)){
+                        b1.keistiPajamuIrasoSuma(pi, sc);
+                        b1.keistiPajamuIrasoKategorija(pi, sc);
+                        b1.keistiPajamuIrasoPozymi(pi, sc);
+                        b1.keistiPajamuIrasoKomentarus(pi, sc);
+                    }else {
+                        b1.keistiIslaiduIrasoSuma(ii, sc);
+                        b1.keistiIslaiduIrasoKategorija(ii, sc);
+                        b1.keistiIslaiduIrasoAtsiskaitymoBuda(ii, sc);
+                        b1.keistiIslaiduIrasoKomentarus(ii, sc);
+                    }
+
                 }
                 case "e" -> {
                     isRunning = false;
@@ -45,6 +63,7 @@ public class Programa {
         System.out.printf("\n%5s %40s", "[s]", "- spausdinti pajamų įrašus");
         System.out.printf("\n%5s %40s", "[d]", "- spausdinti išlaidų įrašus");
         System.out.printf("\n%5s %40s", "[q]", "- spausdinti visus įrašus");
+        System.out.printf("\n%5s %40s", "[w]", "- redaguoti įrašą pagal ID");
         System.out.printf("\n%5s %40s", "[e]", "- pabaiga");
         System.out.println("\n________________________________________________");
     }
@@ -115,4 +134,12 @@ public class Programa {
         System.out.printf("\n%5s %40s", "[2]", "- pridėti išlaidų įrašą");
         System.out.println("\n_________________________________________________________________");
     }
+
+    static void printEditSelection(){
+        System.out.println("\n_____________PASIRINKITE:  __________________________");
+        System.out.printf("\n%5s %20s", "[1]", "- TAIP");
+        System.out.printf("\n%5s %20s", "[2]", "-NE, TOLIAU");
+        System.out.println("\n_____________________________________________________");
+    }
+
 }

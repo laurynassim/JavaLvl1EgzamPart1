@@ -1,6 +1,6 @@
 public class PajamuIrasas extends Irasas {
 
-   private PajamuKategorijos kategorija;
+   private  PajamuKategorijos kategorija;
    private  Boolean pozymisArIBanka;
 
 
