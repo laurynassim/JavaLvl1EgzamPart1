@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Biudzetas {
 
 
-    private int bendraPajamuSuma;
-    private int bendraIslaiduSuma;
+//    private int bendraPajamuSuma;
+//    private int bendraIslaiduSuma;
 
 
     ArrayList<PajamuIrasas> pajamos = new ArrayList<PajamuIrasas>();
@@ -65,6 +65,7 @@ public class Biudzetas {
     }
 
     public float suskaiciuotiVisasPajamas() {
+        int bendraPajamuSuma = 0;
         for (int i = 0; i < pajamos.size(); i++) {
             bendraPajamuSuma += pajamos.get(i).getSuma();
         }
@@ -72,6 +73,7 @@ public class Biudzetas {
     }
 
     public float suskaiciuotiVisasIslaidas() {
+        int bendraIslaiduSuma = 0;
         for (int i = 0; i < islaidos.size(); i++) {
             bendraIslaiduSuma += islaidos.get(i).getSuma();
         }
